@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pattern Master</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #f0f2f5;
+            color: #333;
+        }
+        .game-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-top: 2rem;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+        .cell {
+            width: 60px;
+            height: 60px;
+            border: 2px solid #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .cell:hover {
+            background: #f5f5f5;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 400px;
+            margin-top: 20px;
+        }
+        .score {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .timer {
+            color: #e74c3c;
+        }
+        .controls {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #3498db;
+            color: white;
+            cursor: pointer;
+            margin: 0 10px;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>Pattern Master</h1>
+        <div class="grid">
+            <div class="cell">⭐</div>
+            <div class="cell">🔷</div>
+            <div class="cell">⭐</div>
+            <div class="cell">🔷</div>
+            <div class="cell">?</div>
+            <div class="cell">🔷</div>
+            <div class="cell">⭐</div>
+            <div class="cell">🔷</div>
+            <div class="cell">?</div>
+            <div class="cell">⭐</div>
+            <div class="cell">⭐</div>
+            <div class="cell">🔷</div>
+            <div class="cell">?</div>
+            <div class="cell">⭐</div>
+            <div class="cell">🔷</div>
+            <div class="cell">🔷</div>
+            <div class="cell">?</div>
+            <div class="cell">⭐</div>
+            <div class="cell">🔷</div>
+            <div class="cell">⭐</div>
+            <div class="cell">?</div>
+            <div class="cell">⭐</div>
+            <div class="cell">🔷</div>
+            <div class="cell">⭐</div>
+            <div class="cell">🔷</div>
+        </div>
+        <div class="stats">
+            <div class="score">Score: 0</div>
+            <div class="timer">Time: 30s</div>
+        </div>
+        <div class="controls">
+            <button onclick="checkPattern()">Submit</button>
+            <button onclick="newGame()">New Game</button>
+        </div>
+    </div>
+    <script>
+        let score = 0;
+        let timeLeft = 30;
+        let timer;
+
+        function checkPattern() {
+            // Pattern checking logic here
+            updateScore();
+        }
+
+        function newGame() {
+            // Reset game logic here
+            score = 0;
+            timeLeft = 30;
+            updateUI();
+            startTimer();
+        }
+
+        function updateScore() {
+            document.querySelector('.score').textContent = `Score: ${score}`;
+        }
+
+        function updateUI() {
+            // Update UI elements
+        }
+
+        function startTimer() {
+            clearInterval(timer);
+            timer = setInterval(() => {
+                timeLeft--;
+                document.querySelector('.timer').textContent = `Time: ${timeLeft}s`;
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    // Game over logic
+                }
+            }, 1000);
+        }
+
+        // Initialize game
+        newGame();
+    </script>
+</body>
+</html>
