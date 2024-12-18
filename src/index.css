@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.hero img {
+  /* Make sure these properties allow the image to be visible */
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
