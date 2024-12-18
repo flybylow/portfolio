@@ -13,10 +13,10 @@ export default function Home() {
           className="absolute inset-0 w-full h-full object-cover object-center opacity-30 -z-10"
         />
         <h1 className="text-4xl font-bold text-gray-900 sm:text-5xl md:text-6xl">
-          Welcome to My Portfolio
+          Ward De Muynck
         </h1>
         <p className="mt-3 text-xl text-gray-500">
-          Frontend Developer & UI/UX Designer
+          UX Researcher & UI Prototyper
         </p>
       </section>
 
